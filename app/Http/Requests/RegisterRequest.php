@@ -25,20 +25,23 @@ class RegisterRequest extends FormRequest
     {
         return [
             "password"=>"Şifre",
-            "email"=>"Email"
+            "email"=>"Email",
+            "name" =>"Ad"
         ];
     }
     public function Messages()
     {
         return [
-            "password.required"=>":attribute alanı boş bırakılamaz."
+            "password.required"=>":attribute alanı boş bırakılamaz.",
+            "name.required" =>"Geçersiz :attribute"
         ];
     }
     public function rules()
     {
         return [
             'password' => "required |min:3|confirmed",
-            'email' => "required|email"
+            'email' => "required|email",
+            "name" => "required|min:3"
         ];
     }
 }

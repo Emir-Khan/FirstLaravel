@@ -13,7 +13,7 @@ class RequestForm extends Controller
     public function index($id)
     {
         /* $users=DB::table("users")->find($id); */
-        $users= User::find($id);
+        $users = User::find($id);
         echo $users->getPost;
     }
     public function form()
@@ -40,8 +40,13 @@ class RequestForm extends Controller
         }
         return "ok"; */
 
+        DB::table("users")->insert([
+            "email" => $request->post("email"),
+            "name"=>$request->post("name"),
+            "password" => $request->post("password"),
+            "name"=>$request->post("name")
+        ]);
 
         print_r($request->post());
-        
     }
 }
